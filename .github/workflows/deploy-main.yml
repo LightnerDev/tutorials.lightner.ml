@@ -1,0 +1,13 @@
+name: Deploy Main Branch
+on: workflow_dispatch
+
+env:
+  URL: ${{ secrets.DEPLOY_MAIN }}
+
+jobs:
+  curl: 
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -X POST "$URL"
+          echo Confirmed From Deploy Main Branch
